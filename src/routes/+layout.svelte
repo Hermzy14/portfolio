@@ -88,8 +88,21 @@
 	}
 
 	@media (max-height: 1000px) {
+		:global(h1) {
+			font-size: 2.5rem; /* 40px */
+		}
+		:global(h2) {
+			font-size: 2rem; /* 32px */
+		}
+		:global(h3) {
+			font-size: 1.5rem; /* 24px */
+		}
+		:global(small) {
+			font-size: 0.7rem; /* 11.2px */
+		}
+
 		#wrapper {
-			padding: 5rem;
+			padding: 5rem 10rem;
 		}
 	}
 </style>

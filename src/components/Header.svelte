@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { SiGithub } from '@icons-pack/svelte-simple-icons';
+	import { SiGithub, SiGmail } from '@icons-pack/svelte-simple-icons';
+	import { Mail } from 'lucide-svelte';
 
 	let activeSection = $state('about');
 	let mainElement: HTMLElement;
@@ -74,7 +75,12 @@
 	</nav>
 
 	<section>
-		<a href="https://github.com/Hermzy14" target="_blank" class="contact-link"><SiGithub /></a>
+		<a href="https://github.com/Hermzy14" target="_blank" class="contact-link"
+			><SiGithub size={30} /></a
+		>
+		<a href="mailto:hermanluho@gmail.com" class="contact-link">
+			<Mail size={30} class="mail-icon" /></a
+		>
 	</section>
 </header>
 
@@ -118,11 +124,14 @@
 	.contact-link {
 		color: var(--text-color);
 		text-decoration: none;
-		font-size: 2rem;
 		transition: color 0.3s ease;
 	}
 	.contact-link:hover {
 		color: var(--accent-color);
+	}
+
+	.mail-icon {
+		background: var(--text-color);
 	}
 
 	@media (max-height: 1000px) {

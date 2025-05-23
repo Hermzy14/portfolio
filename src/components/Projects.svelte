@@ -5,5 +5,6 @@
 <style>
 	section {
 		scroll-margin-top: 2rem;
+		margin-bottom: 5rem;
 	}
 </style>

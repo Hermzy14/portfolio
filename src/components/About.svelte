@@ -41,11 +41,20 @@
 	section {
 		display: flex;
 		flex-direction: column;
+		scroll-margin-top: 10rem;
 		gap: 1rem;
+		margin-bottom: 5rem;
 	}
+
 	p,
 	a {
 		text-align: justify;
 		color: var(--text-color);
+	}
+
+	@media (max-height: 1000px) {
+		section {
+			scroll-margin-top: 5rem;
+		}
 	}
 </style>

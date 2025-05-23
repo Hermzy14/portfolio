@@ -80,7 +80,7 @@
 		background-image: radial-gradient(
 			circle at var(--x) var(--y),
 			var(--color1) 0%,
-			transparent 80%
+			transparent 40%
 		);
 		overflow: hidden;
 	}
