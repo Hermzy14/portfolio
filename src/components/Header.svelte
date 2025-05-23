@@ -21,34 +21,43 @@
 
 <style>
 	header {
-		background-color: var(--background-color);
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 200px;
 		color: var(--text-color);
-		padding: 2rem;
-		margin-bottom: 2rem;
+		padding: 2rem 1rem;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		border-bottom: 1px solid var(--secondary-color);
+		z-index: 10;
 	}
 
 	nav ul {
 		list-style-type: none;
 		display: flex;
+		flex-direction: column;
 		gap: 2rem;
+		width: 100%;
 	}
 
 	nav a {
 		color: var(--text-color);
 		text-decoration: none;
-		padding: 0.5rem 1rem;
+		padding: 1rem;
 		border-radius: 8px;
+		display: block;
+		text-align: center;
+		transition: color 0.3s ease;
 	}
 
 	nav a:hover {
-		text-decoration: underline;
+		color: var(--accent-color);
 	}
 
 	.active {
-		background: var(--accent-color);
+		color: var(--accent-color);
 	}
 </style>

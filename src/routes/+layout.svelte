@@ -42,6 +42,13 @@
 		background-color: var(--background-color);
 	}
 
+	main {
+		margin-left: 200px;
+		padding: 2rem;
+		height: 100vh;
+		overflow-y: auto;
+	}
+
 	:global(h1),
 	:global(h2),
 	:global(h3),
