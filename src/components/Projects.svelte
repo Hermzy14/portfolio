@@ -1,10 +1,9 @@
 <section id="projects">
-	<h1>Prosjekter</h1>
+	<h2>Prosjekter</h2>
 </section>
 
 <style>
 	section {
-		height: 100vh;
 		scroll-margin-top: 2rem;
 	}
 </style>

@@ -12,13 +12,40 @@
 </script>
 
 <section id="about">
-	<h1>Hei,</h1>
-	<p>Jeg heter Herman, er en {age} gammel gutt som studerer dataingeniør ved NTNU</p>
+	<h2>Om meg</h2>
+	<p>
+		Hei, jeg er {age} år gammel og studerer dataingeniør ved NTNU i Ålesund. Interessen min for problemløsning
+		og teknologi - kombinert med en lidenskap for design - førte meg hit, hvor jeg spesialiserer meg
+		i applikasjonsutvikling.
+	</p>
+	<p>
+		Gjennom studiene har jeg deltatt i flere prosjekter som har utviklet både mine tekniske
+		ferdigheter og samarbeidsevner. Under <a href="#projects">Prosjekter</a> kan du lese mere om noen
+		av dem i detalj.
+	</p>
+	<p>
+		Når jeg fullfører studiene, ser jeg for meg en fremtid innen frontend-utvikling eller
+		apputvikling - områder som virkelig fascinerer meg akkurat nå. Samtidig er jeg åpen for nye
+		utfordringer og elsker å lære! Mest av alt ønsker jeg å bidra til løsninger som utgjør en
+		positiv forskjell.
+	</p>
+	<p>
+		Ved siden av studiene er jeg også læringsassistent i Programmering 1, der jeg støtter studenter
+		i forståelsen av objektorientert programmering med Java. Arbeidet krever både sterk faglig
+		forståelse og evnen til å kommunisere klart. På fritiden liker jeg å eksperimentere og utforske
+		ny teknologi.
+	</p>
 </section>
 
 <style>
 	section {
-		height: 100vh;
-		scroll-margin-top: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	p,
+	a {
+		text-align: justify;
+		color: var(--text-color);
 	}
 </style>

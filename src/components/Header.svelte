@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { SiGithub } from '@icons-pack/svelte-simple-icons';
+
 	let activeSection = $state('about');
 	let mainElement: HTMLElement;
 
@@ -50,6 +52,15 @@
 </script>
 
 <header>
+	<section>
+		<h1>Herman Lundby-Holen</h1>
+		<h2>Software utvikler</h2>
+		<p>
+			Jeg er en dataingeniørstudent med en lidenskap for teknologi og design. Jeg elsker å løse
+			problemer og skape innovative løsninger.
+		</p>
+	</section>
+
 	<nav>
 		<ul>
 			<li><a href="#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a></li>
@@ -61,21 +72,23 @@
 			</li>
 		</ul>
 	</nav>
+
+	<section>
+		<a href="https://github.com/Hermzy14" target="_blank" class="contact-link"><SiGithub /></a>
+	</section>
 </header>
 
 <style>
 	header {
-		position: fixed;
-		top: 0;
+		position: sticky;
+		top: 10rem;
 		left: 0;
-		height: 100vh;
-		width: 200px;
+		width: 50%;
+		height: calc(100vh - 20rem);
 		color: var(--text-color);
-		padding: 2rem 1rem;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+		justify-content: space-between;
 		z-index: 10;
 	}
 
@@ -83,8 +96,6 @@
 		list-style-type: none;
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
-		width: 100%;
 	}
 
 	nav a {
@@ -93,7 +104,6 @@
 		padding: 1rem;
 		border-radius: 8px;
 		display: block;
-		text-align: center;
 		transition: color 0.3s ease;
 	}
 
@@ -103,5 +113,22 @@
 
 	.active {
 		color: var(--accent-color);
+	}
+
+	.contact-link {
+		color: var(--text-color);
+		text-decoration: none;
+		font-size: 2rem;
+		transition: color 0.3s ease;
+	}
+	.contact-link:hover {
+		color: var(--accent-color);
+	}
+
+	@media (max-height: 1000px) {
+		header {
+			top: 5rem;
+			height: calc(100vh - 10rem);
+		}
 	}
 </style>
