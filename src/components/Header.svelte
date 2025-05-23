@@ -74,13 +74,11 @@
 		</ul>
 	</nav>
 
-	<section>
+	<section id="contact-options">
 		<a href="https://github.com/Hermzy14" target="_blank" class="contact-link"
 			><SiGithub size={30} /></a
 		>
-		<a href="mailto:hermanluho@gmail.com" class="contact-link">
-			<Mail size={30} class="mail-icon" /></a
-		>
+		<a href="mailto:hermanluho@gmail.com" class="contact-link"> <Mail size={30} /></a>
 	</section>
 </header>
 
@@ -121,17 +119,26 @@
 		color: var(--accent-color);
 	}
 
-	.contact-link {
-		color: var(--text-color);
-		text-decoration: none;
-		transition: color 0.3s ease;
-	}
-	.contact-link:hover {
-		color: var(--accent-color);
+	#contact-options {
+		display: flex;
+		gap: 1rem;
 	}
 
-	.mail-icon {
+	.contact-link {
 		background: var(--text-color);
+		border-radius: 50%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		color: var(--background-color);
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+	.contact-link:hover {
+		background: var(--accent-color);
+		color: var(--text-color);
 	}
 
 	@media (max-height: 1000px) {
