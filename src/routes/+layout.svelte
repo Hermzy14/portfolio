@@ -12,7 +12,7 @@
 <Background />
 
 <style>
-	@import url('https://fonts.googleapis.com/css?family=Antic%20Didone:700|Zen%20Kaku%20Gothic%20New:400');
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 	:root {
 		--text-color: #f5efe5d9;
@@ -38,8 +38,8 @@
 	}
 
 	:global(body) {
-		font-family: 'Zen Kaku Gothic New';
-		font-weight: 400;
+		font-family: 'Roboto Flex', sans-serif;
+		font-weight: 200;
 		color: var(--text-color);
 		background-color: var(--background-color);
 	}
@@ -51,25 +51,25 @@
 	:global(h1),
 	:global(h2),
 	:global(h3) {
-		font-family: 'Antic Didone';
 		font-weight: 700;
 		color: var(--heading-color);
 	}
 
 	:global(h1) {
-		font-size: 3.053rem; /* 48.8px */
+		font-size: 4.2rem;
 	}
 
 	:global(h2) {
-		font-size: 2.442rem; /* 39.04px */
+		font-size: 3rem;
+		font-weight: 400;
 	}
 
 	:global(h3) {
-		font-size: 1.954rem; /* 31.2px */
+		font-size: 2rem;
 	}
 
 	:global(small) {
-		font-size: 0.8rem; /* 12.8px */
+		font-size: 0.75rem;
 	}
 
 	#wrapper {
