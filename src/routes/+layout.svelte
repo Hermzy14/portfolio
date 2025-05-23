@@ -19,7 +19,7 @@
 		--heading-color: #f5efe5;
 		--background-color: #172015;
 		--primary-color: #cabda5;
-		--secondary-color: #47673c;
+		--secondary-color: #eb662420;
 		--accent-color: #eb6624;
 	}
 
