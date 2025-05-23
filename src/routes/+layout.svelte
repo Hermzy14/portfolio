@@ -42,11 +42,16 @@
 		background-color: var(--background-color);
 	}
 
+	:global(html) {
+		font-size: 100%;
+	} /* 16px */
+
 	main {
 		margin-left: 200px;
 		padding: 2rem;
 		height: 100vh;
 		overflow-y: auto;
+		scroll-behavior: smooth;
 	}
 
 	:global(h1),
@@ -57,10 +62,6 @@
 		font-family: 'Gulzar';
 		font-weight: 700;
 	}
-
-	:global(html) {
-		font-size: 100%;
-	} /* 16px */
 
 	:global(h1) {
 		font-size: 4.21rem; /* 67.36px */

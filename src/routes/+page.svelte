@@ -1,20 +1,12 @@
 <script lang="ts">
-	let age: Number = $state(0);
-
-	$effect(() => {
-		calculateAge();
-	});
-
-	function calculateAge() {
-		const currentYear = new Date().getFullYear();
-		age = currentYear - 2003;
-	}
+	import About from '../components/About.svelte';
+	import Contact from '../components/Contact.svelte';
+	import Projects from '../components/Projects.svelte';
 </script>
 
-<section id="hero">
-	<h1>Hei, jeg er Herman Lundby-Holen</h1>
-	<p>Jeg er {age} år gammel og studerer dataingeniør ved NTNU.</p>
-</section>
+<About />
+<Projects />
+<Contact />
 
 <style>
 </style>

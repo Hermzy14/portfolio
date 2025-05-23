@@ -1,20 +1,64 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	let activeSection = $state('about');
+	let mainElement: HTMLElement;
 
-	let url = $state(page.url.pathname);
-	// Listen for changes to the URL
+	function updateActiveSection() {
+		const sections = ['about', 'projects', 'contact']; // Fixed: separate items
+
+		if (!mainElement) return;
+
+		const scrollPosition = mainElement.scrollTop + 100; // Offset for better detection
+
+		for (const section of sections) {
+			const element = document.getElementById(section);
+			if (element) {
+				const rect = element.getBoundingClientRect();
+				const mainRect = mainElement.getBoundingClientRect();
+				const top = rect.top - mainRect.top + mainElement.scrollTop;
+				const bottom = top + rect.height;
+
+				if (scrollPosition >= top && scrollPosition < bottom) {
+					activeSection = section;
+					break;
+				}
+			}
+		}
+	}
+
 	$effect(() => {
-		url = page.url.pathname;
+		if (typeof window !== 'undefined') {
+			// Get the main element
+			const foundMain = document.querySelector('main');
+			if (foundMain instanceof HTMLElement) {
+				mainElement = foundMain;
+			} else {
+				mainElement = undefined as unknown as HTMLElement;
+			}
+
+			if (mainElement) {
+				mainElement.addEventListener('scroll', updateActiveSection);
+				updateActiveSection(); // Initial check
+			}
+
+			return () => {
+				if (mainElement) {
+					mainElement.removeEventListener('scroll', updateActiveSection);
+				}
+			};
+		}
 	});
 </script>
 
 <header>
 	<nav>
 		<ul>
-			<li><a href="/" class={url === '/' ? 'active' : ''}>Hjem</a></li>
-			<li><a href="/about" class={url === '/about' ? 'active' : ''}>Om meg</a></li>
-			<li><a href="/projects" class={url === '/projects' ? 'active' : ''}>Prosjekter</a></li>
-			<li><a href="/contact" class={url === '/contact' ? 'active' : ''}>Kontakt meg</a></li>
+			<li><a href="#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a></li>
+			<li>
+				<a href="#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
+			</li>
+			<li>
+				<a href="#contact" class={activeSection === 'contact' ? 'active' : ''}>Kontakt meg</a>
+			</li>
 		</ul>
 	</nav>
 </header>
