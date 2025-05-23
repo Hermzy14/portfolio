@@ -58,17 +58,15 @@
 
 	// Update tween targets on mouse/touch move
 	$effect(() => {
-		xTween.set(targetX);
-		yTween.set(targetY);
+		xTween.target = targetX;
+		yTween.target = targetY;
 	});
 </script>
 
 <div
 	class="interactive-bg"
 	style="--x: {currentX}px; --y: {currentY}px; --color1: {color1};  --defaultColor: {backgroundColor};"
->
-	<slot />
-</div>
+></div>
 
 <style>
 	.interactive-bg {
