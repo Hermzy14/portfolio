@@ -3,21 +3,17 @@
 	import { Mail } from 'lucide-svelte';
 
 	let activeSection = $state('about');
-	let mainElement: HTMLElement;
 
 	function updateActiveSection() {
 		const sections = ['about', 'projects', 'contact']; // Fixed: separate items
 
-		if (!mainElement) return;
-
-		const scrollPosition = mainElement.scrollTop + 100; // Offset for better detection
+		const scrollPosition = window.scrollY + window.innerHeight / 3; // Offset for better detection
 
 		for (const section of sections) {
 			const element = document.getElementById(section);
 			if (element) {
 				const rect = element.getBoundingClientRect();
-				const mainRect = mainElement.getBoundingClientRect();
-				const top = rect.top - mainRect.top + mainElement.scrollTop;
+				const top = rect.top + window.scrollY;
 				const bottom = top + rect.height;
 
 				if (scrollPosition >= top && scrollPosition < bottom) {
@@ -30,23 +26,12 @@
 
 	$effect(() => {
 		if (typeof window !== 'undefined') {
-			// Get the main element
-			const foundMain = document.querySelector('main');
-			if (foundMain instanceof HTMLElement) {
-				mainElement = foundMain;
-			} else {
-				mainElement = undefined as unknown as HTMLElement;
-			}
-
-			if (mainElement) {
-				mainElement.addEventListener('scroll', updateActiveSection);
-				updateActiveSection(); // Initial check
-			}
+			window.addEventListener('scroll', updateActiveSection);
+			// Initial check
+			updateActiveSection();
 
 			return () => {
-				if (mainElement) {
-					mainElement.removeEventListener('scroll', updateActiveSection);
-				}
+				window.removeEventListener('scroll', updateActiveSection);
 			};
 		}
 	});
@@ -120,6 +105,7 @@
 	nav li {
 		color: var(--text-color);
 		transition: color 0.3s ease;
+		width: fit-content;
 	}
 
 	nav li:hover {
@@ -136,6 +122,7 @@
 		padding: 1rem;
 		border-radius: 8px;
 		transition: color 0.3s ease;
+		width: 100%;
 	}
 
 	nav a:hover {

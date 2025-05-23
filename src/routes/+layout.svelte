@@ -46,6 +46,7 @@
 
 	:global(html) {
 		font-size: 100%;
+		scroll-behavior: smooth;
 	} /* 16px */
 
 	:global(h1),
@@ -74,17 +75,16 @@
 
 	#wrapper {
 		width: 100vw;
+		min-height: 100vh;
 		display: flex;
 		flex-direction: row;
 		gap: 5rem;
 		padding: 10rem;
+		position: relative;
 	}
 
 	main {
 		width: 50%;
-		height: 100vh;
-		scroll-behavior: smooth;
-		overflow-y: auto;
 	}
 
 	@media (max-height: 1000px) {
