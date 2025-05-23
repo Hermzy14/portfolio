@@ -39,7 +39,7 @@
 
 	:global(body) {
 		font-family: 'Roboto Flex', sans-serif;
-		font-weight: 200;
+		font-weight: 100;
 		color: var(--text-color);
 		background-color: var(--background-color);
 	}

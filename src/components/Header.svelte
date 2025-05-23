@@ -53,7 +53,7 @@
 </script>
 
 <header>
-	<section>
+	<section id="hero">
 		<h1>Herman Lundby-Holen</h1>
 		<h2>Software utvikler</h2>
 		<p>
@@ -64,11 +64,13 @@
 
 	<nav>
 		<ul>
-			<li><a href="#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a></li>
-			<li>
+			<li class={activeSection === 'about' ? 'active-item' : ''}>
+				<a href="#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a>
+			</li>
+			<li class={activeSection === 'projects' ? 'active-item' : ''}>
 				<a href="#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
 			</li>
-			<li>
+			<li class={activeSection === 'contact' ? 'active-item' : ''}>
 				<a href="#contact" class={activeSection === 'contact' ? 'active' : ''}>Kontakt meg</a>
 			</li>
 		</ul>
@@ -96,10 +98,36 @@
 		z-index: 10;
 	}
 
-	nav ul {
-		list-style-type: none;
+	#hero {
 		display: flex;
 		flex-direction: column;
+		text-align: justify;
+	}
+
+	#hero h2 {
+		font-size: 1.5rem;
+		margin: 0.5rem 0 1rem 0;
+	}
+
+	nav ul {
+		list-style-position: inside;
+		list-style-type: lower-roman;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	nav li {
+		color: var(--text-color);
+		transition: color 0.3s ease;
+	}
+
+	nav li:hover {
+		color: var(--accent-color);
+	}
+
+	nav li.active-item {
+		color: var(--accent-color);
 	}
 
 	nav a {
@@ -107,7 +135,6 @@
 		text-decoration: none;
 		padding: 1rem;
 		border-radius: 8px;
-		display: block;
 		transition: color 0.3s ease;
 	}
 
