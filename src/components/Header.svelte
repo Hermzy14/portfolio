@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
-	import { Mail, FileText } from 'lucide-svelte';
+	import { Mail, FileText, ArrowUp } from 'lucide-svelte';
 
 	let activeSection = $state('about');
 
 	function updateActiveSection() {
-		const sections = ['about', 'projects', 'contact']; // Fixed: separate items
+		const sections = ['about', 'projects', 'contact'];
 
 		const scrollPosition = window.scrollY + window.innerHeight / 5; // Offset for better detection
 
@@ -37,6 +37,7 @@
 	});
 </script>
 
+<a href="#hero" class="go-to-top"><ArrowUp size={30} /></a>
 <header>
 	<section id="hero">
 		<h1>Herman Lundby-Holen</h1>
@@ -71,6 +72,10 @@
 </header>
 
 <style>
+	.go-to-top {
+		display: none;
+	}
+
 	header {
 		position: sticky;
 		top: 10rem;
@@ -88,6 +93,7 @@
 		display: flex;
 		flex-direction: column;
 		text-align: justify;
+		scroll-margin-top: 5rem;
 	}
 
 	#hero h2 {
@@ -160,6 +166,40 @@
 		header {
 			top: 5rem;
 			height: calc(100vh - 10rem);
+		}
+	}
+
+	@media (max-width: 860px) {
+		.go-to-top {
+			display: block;
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			background-color: var(--text-color);
+			color: var(--background-color);
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			border: none;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		header {
+			position: relative;
+			width: 100%;
+			top: 0;
+		}
+
+		#hero h1 {
+			font-size: 2rem;
+		}
+
+		.active,
+		nav li.active-item {
+			color: var(--text-color);
 		}
 	}
 </style>

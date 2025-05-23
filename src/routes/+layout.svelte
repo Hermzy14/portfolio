@@ -105,4 +105,15 @@
 			padding: 5rem 10rem;
 		}
 	}
+
+	@media (max-width: 860px) {
+		#wrapper {
+			flex-direction: column;
+			padding: 5rem 2rem;
+		}
+
+		main {
+			width: 100%;
+		}
+	}
 </style>

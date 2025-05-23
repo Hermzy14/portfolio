@@ -8,7 +8,7 @@
 		<li>
 			<a href="https://webteknologi9.netlify.app" target="_blank">
 				<span class="project-title">Learniverse Connect</span><span class="project-description"
-					>Webteknologi & Applikasjonsutvikling</span
+					>Webtek & Apputvikling</span
 				>
 				<div class="seperator"></div>
 				<span class="project-year">2025</span>
