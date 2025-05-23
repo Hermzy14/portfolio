@@ -49,7 +49,7 @@
 
 <style>
 	section {
-		scroll-margin-top: 2rem;
+		scroll-margin-top: 5rem;
 		margin-bottom: 5rem;
 		display: flex;
 		flex-direction: column;

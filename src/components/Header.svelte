@@ -7,7 +7,7 @@
 	function updateActiveSection() {
 		const sections = ['about', 'projects', 'contact']; // Fixed: separate items
 
-		const scrollPosition = window.scrollY + window.innerHeight / 3; // Offset for better detection
+		const scrollPosition = window.scrollY + window.innerHeight / 5; // Offset for better detection
 
 		for (const section of sections) {
 			const element = document.getElementById(section);

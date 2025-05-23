@@ -4,7 +4,7 @@
 
 <style>
 	section {
-		scroll-margin-top: 2rem;
+		scroll-margin-top: 5rem;
 		height: 100vh;
 	}
 </style>
