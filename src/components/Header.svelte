@@ -21,13 +21,14 @@
 
 <style>
 	header {
-		background-color: #333;
-		color: white;
+		background-color: var(--background-color);
+		color: var(--text-color);
 		padding: 2rem;
 		margin-bottom: 2rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		border-bottom: 1px solid var(--secondary-color);
 	}
 
 	nav ul {
@@ -37,7 +38,7 @@
 	}
 
 	nav a {
-		color: white;
+		color: var(--text-color);
 		text-decoration: none;
 		padding: 0.5rem 1rem;
 		border-radius: 8px;
@@ -48,6 +49,6 @@
 	}
 
 	.active {
-		background: #555;
+		background: var(--accent-color);
 	}
 </style>
