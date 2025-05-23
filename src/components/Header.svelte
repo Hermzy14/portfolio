@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { SiGithub, SiGmail } from '@icons-pack/svelte-simple-icons';
-	import { Mail } from 'lucide-svelte';
+	import { SiGithub } from '@icons-pack/svelte-simple-icons';
+	import { Mail, FileText } from 'lucide-svelte';
 
 	let activeSection = $state('about');
 
@@ -62,10 +62,11 @@
 	</nav>
 
 	<section id="contact-options">
-		<a href="https://github.com/Hermzy14" target="_blank" class="contact-link"
+		<a href="https://github.com/Hermzy14" target="_blank" class="contact-link" title="GitHub"
 			><SiGithub size={30} /></a
 		>
-		<a href="mailto:hermanluho@gmail.com" class="contact-link"> <Mail size={30} /></a>
+		<a href="mailto:hermanluho@gmail.com" class="contact-link" title="Mail"> <Mail size={30} /></a>
+		<a href="/CV.pdf" target="_blank" class="contact-link" title="CV"> <FileText size={30} /></a>
 	</section>
 </header>
 
