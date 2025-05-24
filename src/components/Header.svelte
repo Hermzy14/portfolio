@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
 	import { Mail, FileText, ArrowUp } from 'lucide-svelte';
-	import { fade, slide } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
+	import { page } from '$app/stores';
 
 	let activeSection = $state('about');
+	let activeProject = $state('');
 
 	function updateActiveSection() {
 		const sections = ['about', 'projects', 'contact'];
@@ -24,6 +26,36 @@
 			}
 		}
 	}
+
+	function updateActiveSectionFromRoute(pathname: string) {
+		// Check if we're on a project page
+		const projectRoutes = ['/learniverse', '/chaos-game', '/card-game', '/train-dispatch-system'];
+
+		if (projectRoutes.includes(pathname)) {
+			activeSection = 'projects';
+			activeProject = pathname.split('/')[1]; // Extract project name from the path
+		} else if (pathname === '/' || pathname.includes('#about')) {
+			activeSection = 'about';
+			activeProject = '';
+		} else if (pathname.includes('#projects')) {
+			activeSection = 'projects';
+			activeProject = '';
+		} else if (pathname.includes('#contact')) {
+			activeSection = 'contact';
+			activeProject = '';
+		} else {
+			// Default to about for home page
+			activeSection = 'about';
+			activeProject = '';
+		}
+	}
+
+	// Listen to route changes
+	$effect(() => {
+		if ($page) {
+			updateActiveSectionFromRoute($page.url.pathname);
+		}
+	});
 
 	$effect(() => {
 		if (typeof window !== 'undefined') {
@@ -56,17 +88,43 @@
 				<a href="/#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
 				{#if activeSection === 'projects'}
 					<ul class="project-list">
-						<li in:slide={{ delay: 0 }} out:slide={{ delay: 300 }}>
-							<a href="/learniverse">Learniverse Connect</a>
+						<li
+							in:slide={{ delay: 0 }}
+							out:slide={{ delay: 300 }}
+							class={activeProject === 'learniverse' ? 'active-item' : ''}
+						>
+							<a href="/learniverse" class={activeProject === 'learniverse' ? 'active' : ''}
+								>Learniverse Connect</a
+							>
 						</li>
-						<li in:slide={{ delay: 100 }} out:slide={{ delay: 200 }}>
-							<a href="/chaos-game">Chaos Game</a>
+						<li
+							in:slide={{ delay: 100 }}
+							out:slide={{ delay: 200 }}
+							class={activeProject === 'chaos-game' ? 'active-item' : ''}
+						>
+							<a href="/chaos-game" class={activeProject === 'chaos-game' ? 'active' : ''}
+								>Chaos Game</a
+							>
 						</li>
-						<li in:slide={{ delay: 200 }} out:slide={{ delay: 100 }}>
-							<a href="/card-game">Card Game</a>
+						<li
+							in:slide={{ delay: 200 }}
+							out:slide={{ delay: 100 }}
+							class={activeProject === 'card-game' ? 'active-item' : ''}
+						>
+							<a href="/card-game" class={activeProject === 'card-game' ? 'active' : ''}
+								>Card Game</a
+							>
 						</li>
-						<li in:slide={{ delay: 300 }} out:slide={{ delay: 0 }}>
-							<a href="/train-dispatch-system">Train Dispatch System</a>
+						<li
+							in:slide={{ delay: 300 }}
+							out:slide={{ delay: 0 }}
+							class={activeProject === 'train-dispatch-system' ? 'active-item' : ''}
+						>
+							<a
+								href="/train-dispatch-system"
+								class={activeProject === 'train-dispatch-system' ? 'active' : ''}
+								>Train Dispatch System</a
+							>
 						</li>
 					</ul>
 				{/if}
