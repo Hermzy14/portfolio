@@ -6,7 +6,7 @@
 	</p>
 	<ul>
 		<li>
-			<a href="https://webteknologi9.netlify.app" target="_blank">
+			<a href="/learniverse">
 				<span class="project-title">Learniverse Connect</span><span class="project-description"
 					>Webtek & Apputvikling</span
 				>

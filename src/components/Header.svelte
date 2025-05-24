@@ -27,8 +27,6 @@
 	$effect(() => {
 		if (typeof window !== 'undefined') {
 			window.addEventListener('scroll', updateActiveSection);
-			// Initial check
-			updateActiveSection();
 
 			return () => {
 				window.removeEventListener('scroll', updateActiveSection);
@@ -51,13 +49,23 @@
 	<nav>
 		<ul>
 			<li class={activeSection === 'about' ? 'active-item' : ''}>
-				<a href="#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a>
+				<a href="/#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a>
 			</li>
 			<li class={activeSection === 'projects' ? 'active-item' : ''}>
-				<a href="#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
+				<a href="/#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
+				{#if activeSection === 'projects'}
+					<ul class="project-list">
+						<li><a href="/learniverse">Learniverse Connect</a></li>
+						<li><a href="" target="_blank">Chaos Game</a></li>
+						<li><a href="" target="_blank">Card Game</a></li>
+						<li>
+							<a href="" target="_blank">Train Dispatch System</a>
+						</li>
+					</ul>
+				{/if}
 			</li>
 			<li class={activeSection === 'contact' ? 'active-item' : ''}>
-				<a href="#contact" class={activeSection === 'contact' ? 'active' : ''}>Kontakt meg</a>
+				<a href="/#contact" class={activeSection === 'contact' ? 'active' : ''}>Kontakt meg</a>
 			</li>
 		</ul>
 	</nav>
@@ -138,6 +146,18 @@
 
 	.active {
 		color: var(--accent-color);
+	}
+
+	.project-list {
+		font-size: small;
+		margin-left: 1.5rem;
+		padding-top: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.project-list a {
+		padding: 0;
 	}
 
 	#contact-options {

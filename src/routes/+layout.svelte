@@ -17,10 +17,14 @@
 	:root {
 		--text-color: #f5efe5d9;
 		--heading-color: #f5efe5;
-		--background-color: #172015;
+		/* --background-color: #172015;
 		--primary-color: #cabda5;
 		--secondary-color: #eb662420;
-		--accent-color: #eb6624;
+		--accent-color: #eb6624; */
+		--background-color: #131922;
+		--primary-color: #58a6ff20;
+		--secondary-color: #58a6ff20;
+		--accent-color: #58a6ff;
 	}
 
 	:global(*) {
@@ -57,16 +61,16 @@
 	}
 
 	:global(h1) {
-		font-size: 4.2rem;
+		font-size: 3.5rem;
 	}
 
 	:global(h2) {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		font-weight: 400;
 	}
 
 	:global(h3) {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 
 	:global(small) {
