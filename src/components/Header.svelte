@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
 	import { Mail, FileText, ArrowUp } from 'lucide-svelte';
+	import { fade, slide } from 'svelte/transition';
 
 	let activeSection = $state('about');
 
@@ -55,11 +56,17 @@
 				<a href="/#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
 				{#if activeSection === 'projects'}
 					<ul class="project-list">
-						<li><a href="/learniverse">Learniverse Connect</a></li>
-						<li><a href="" target="_blank">Chaos Game</a></li>
-						<li><a href="" target="_blank">Card Game</a></li>
-						<li>
-							<a href="" target="_blank">Train Dispatch System</a>
+						<li in:slide={{ delay: 0 }} out:slide={{ delay: 300 }}>
+							<a href="/learniverse">Learniverse Connect</a>
+						</li>
+						<li in:slide={{ delay: 100 }} out:slide={{ delay: 200 }}>
+							<a href="/chaos-game">Chaos Game</a>
+						</li>
+						<li in:slide={{ delay: 200 }} out:slide={{ delay: 100 }}>
+							<a href="/card-game">Card Game</a>
+						</li>
+						<li in:slide={{ delay: 300 }} out:slide={{ delay: 0 }}>
+							<a href="/train-dispatch-system">Train Dispatch System</a>
 						</li>
 					</ul>
 				{/if}
