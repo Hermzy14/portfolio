@@ -17,7 +17,7 @@
 
 	// Default colors
 	const backgroundColor: string = 'var(--background-color)';
-	const color1: string = 'rgba(235, 102, 36, 0.15)';
+	const color1: string = 'var(--primary-color)';
 
 	$effect(() => {
 		// Initialize to center if window is defined
