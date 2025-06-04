@@ -2,6 +2,7 @@
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
 	import { Mail, FileText, ArrowUp } from 'lucide-svelte';
 	import { slide } from 'svelte/transition';
+	import { cubicOut } from 'svelte/easing';
 	import { page } from '$app/stores';
 
 	let activeSection = $state('about');
@@ -87,39 +88,27 @@
 			<li class={activeSection === 'projects' ? 'active-item' : ''}>
 				<a href="/#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
 				{#if activeSection === 'projects'}
-					<ul class="project-list">
-						<li
-							in:slide={{ delay: 0 }}
-							out:slide={{ delay: 300 }}
-							class={activeProject === 'learniverse' ? 'active-item' : ''}
-						>
+					<ul
+						class="project-list"
+						in:slide={{ duration: 300, easing: cubicOut }}
+						out:slide={{ duration: 200, easing: cubicOut }}
+					>
+						<li class={activeProject === 'learniverse' ? 'active-item' : ''}>
 							<a href="/learniverse" class={activeProject === 'learniverse' ? 'active' : ''}
 								>Learniverse Connect</a
 							>
 						</li>
-						<li
-							in:slide={{ delay: 100 }}
-							out:slide={{ delay: 200 }}
-							class={activeProject === 'chaos-game' ? 'active-item' : ''}
-						>
+						<li class={activeProject === 'chaos-game' ? 'active-item' : ''}>
 							<a href="/chaos-game" class={activeProject === 'chaos-game' ? 'active' : ''}
 								>Chaos Game</a
 							>
 						</li>
-						<li
-							in:slide={{ delay: 200 }}
-							out:slide={{ delay: 100 }}
-							class={activeProject === 'card-game' ? 'active-item' : ''}
-						>
+						<li class={activeProject === 'card-game' ? 'active-item' : ''}>
 							<a href="/card-game" class={activeProject === 'card-game' ? 'active' : ''}
 								>Card Game</a
 							>
 						</li>
-						<li
-							in:slide={{ delay: 300 }}
-							out:slide={{ delay: 0 }}
-							class={activeProject === 'train-dispatch-system' ? 'active-item' : ''}
-						>
+						<li class={activeProject === 'train-dispatch-system' ? 'active-item' : ''}>
 							<a
 								href="/train-dispatch-system"
 								class={activeProject === 'train-dispatch-system' ? 'active' : ''}
@@ -220,9 +209,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
-	}
-	.project-list a {
-		padding: 0;
+		overflow: hidden;
 	}
 
 	#contact-options {
