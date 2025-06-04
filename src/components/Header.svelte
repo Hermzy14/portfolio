@@ -79,7 +79,7 @@
 		</p>
 	</section>
 
-	<nav>
+	<nav class={activeProject ? 'active-project' : ''}>
 		<ul>
 			<li class={activeSection === 'about' ? 'active-item' : ''}>
 				<a href="/#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a>
@@ -286,5 +286,50 @@
 		nav li.active-item {
 			color: var(--text-color);
 		}
+	}
+
+	/* Special styles for the active project */
+	:global(body.project-page) header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+		padding: 2rem;
+		background-color: var(--background-color);
+		border-bottom: 1px solid var(--primary-color);
+	}
+
+	:global(body.project-page) #hero h1 {
+		font-size: 2rem;
+	}
+
+	:global(body.project-page) #hero h2 {
+		display: none;
+	}
+
+	:global(body.project-page) #hero p {
+		display: none;
+	}
+
+	:global(body.project-page) nav {
+		display: flex;
+		justify-content: center;
+	}
+
+	:global(body.project-page) nav ul {
+		flex-direction: row;
+		gap: 2rem;
+	}
+
+	:global(body.project-page) .project-list {
+		display: none;
+	}
+
+	:global(body.project-page) #contact-options {
+		display: none;
 	}
 </style>

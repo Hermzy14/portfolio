@@ -7,11 +7,18 @@
 
 	let { children } = $props();
 
-	let previousPath = $state('');
-
+	// Get the current page URL
+	let currentPage = $derived(page.url.pathname);
+	function isProjectPage() {
+		return ['/learniverse', '/chaos-game', '/card-game', '/train-dispatch-system'].includes(
+			currentPage
+		);
+	}
+	// Check if the current page is a project page, and set the class accordingly
+	let isProject = $derived(isProjectPage());
 	$effect(() => {
-		if (page) {
-			previousPath = page.url.pathname;
+		if (typeof window !== 'undefined') {
+			document.body.classList.toggle('project-page', isProject);
 		}
 	});
 </script>
