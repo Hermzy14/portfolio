@@ -3,7 +3,7 @@
 	import Background from '../components/Background.svelte';
 	import Header from '../components/Header.svelte';
 	import { fade } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
+	import { cubicInOut, cubicOut } from 'svelte/easing';
 
 	let { children } = $props();
 
@@ -23,16 +23,14 @@
 	});
 </script>
 
-<div id="wrapper">
-	<Header />
-	<main>
-		{#key page.url.pathname}
-			<div in:fade={{ duration: 600, easing: cubicOut }}>
-				{@render children()}
-			</div>
-		{/key}
-	</main>
-</div>
+{#key page.url.pathname}
+	<div id="wrapper" in:fade={{ duration: 600, easing: cubicInOut }}>
+		<Header />
+		<main>
+			{@render children()}
+		</main>
+	</div>
+{/key}
 <Background />
 
 <style>
