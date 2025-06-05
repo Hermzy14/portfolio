@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
-	import { Mail, FileText, ArrowUp } from 'lucide-svelte';
+	import { Mail, FileText, ArrowUp, Sun, Moon } from 'lucide-svelte';
 	import { slide } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { page } from '$app/stores';
+	import { theme } from '$lib/stores/theme.js';
 
 	let activeSection = $state('about');
 	let activeProject = $state('');
@@ -125,11 +126,26 @@
 	</nav>
 
 	<section id="contact-options">
-		<a href="https://github.com/Hermzy14" target="_blank" class="contact-link" title="GitHub"
-			><SiGithub size={30} /></a
+		<div class="contact-options-wrapper">
+			<a href="https://github.com/Hermzy14" target="_blank" class="contact-link" title="GitHub"
+				><SiGithub size={30} /></a
+			>
+			<a href="mailto:hermanluho@gmail.com" class="contact-link" title="Mail">
+				<Mail size={30} /></a
+			>
+			<a href="/CV.pdf" target="_blank" class="contact-link" title="CV"> <FileText size={30} /></a>
+		</div>
+		<button
+			class="theme-toggle"
+			onclick={() => theme.toggle()}
+			title={$theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
 		>
-		<a href="mailto:hermanluho@gmail.com" class="contact-link" title="Mail"> <Mail size={30} /></a>
-		<a href="/CV.pdf" target="_blank" class="contact-link" title="CV"> <FileText size={30} /></a>
+			{#if $theme === 'dark'}
+				<Sun size={24} />
+			{:else}
+				<Moon size={24} />
+			{/if}
+		</button>
 	</section>
 </header>
 
@@ -149,6 +165,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		z-index: 10;
+		transition: color var(--theme-transition, 0.6s ease-in-out);
 	}
 
 	header::after {
@@ -165,6 +182,7 @@
 			var(--primary-color) 90%,
 			transparent 100%
 		);
+		transition: background var(--theme-transition, 0.6s ease-in-out);
 	}
 
 	#hero {
@@ -206,7 +224,7 @@
 		text-decoration: none;
 		padding: 1rem;
 		border-radius: 8px;
-		transition: color 0.3s ease;
+		transition: color var(--theme-transition, 0.3s ease-in-out);
 		width: 100%;
 	}
 
@@ -230,6 +248,12 @@
 
 	#contact-options {
 		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.contact-options-wrapper {
+		display: flex;
 		gap: 1rem;
 	}
 
@@ -243,9 +267,29 @@
 		height: 40px;
 		color: var(--background-color);
 		text-decoration: none;
-		transition: all 0.3s ease;
+		transition: all var(--theme-transition, 0.3s ease-in-out);
 	}
+
 	.contact-link:hover {
+		background: var(--accent-color);
+		color: var(--text-color);
+	}
+
+	.theme-toggle {
+		background: var(--text-color);
+		border-radius: 50%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		color: var(--background-color);
+		border: none;
+		cursor: pointer;
+		transition: all var(--theme-transition, 0.3s ease-in-out);
+	}
+
+	.theme-toggle:hover {
 		background: var(--accent-color);
 		color: var(--text-color);
 	}
