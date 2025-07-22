@@ -16,7 +16,7 @@
 		</li>
 
 		<li>
-			<a href="https://webteknologi9.netlify.app" target="_blank">
+			<a href="/chaos-game">
 				<span class="project-title">Chaos Game</span><span class="project-description"
 					>Programmering 2</span
 				>

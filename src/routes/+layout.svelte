@@ -40,9 +40,16 @@
 {#key page.url.pathname}
 	<div id="wrapper" in:fade={{ duration: 600, easing: cubicInOut }}>
 		<Header />
-		<main>
-			{@render children()}
-		</main>
+		{#if isProject}
+			<main class="project-page">
+				{@render children()}
+			</main>
+		{/if}
+		{#if !isProject}
+			<main class="home-page">
+				{@render children()}
+			</main>
+		{/if}
 	</div>
 {/key}
 <Background />
@@ -55,6 +62,7 @@
 		--text-color: #f5efe5d9;
 		--heading-color: #f5efe5;
 		--background-color: #131922;
+		--background-color-translucent: #131922bb;
 		--primary-color: #58a6ff20;
 		--secondary-color: #58a6ff20;
 		--accent-color: #58a6ff;
@@ -65,12 +73,13 @@
 
 	:root[data-theme='light'] {
 		/* Light theme */
-		--text-color: #4a4a4a; /* En mykere, mørk grå, nesten som blekket i en gammel bok */
-		--heading-color: #383838; /* Litt mørkere og mer markant for overskrifter, men fortsatt myk */
-		--background-color: #e4e1da; /* En varm, kremaktig off-white, som eldet papir */
-		--primary-color: #a0c4e460; /* En dusere, lys blå med lav opasitet, tenk falmet himmel */
-		--secondary-color: #a0c4e460; /* Samme som primærfargen for konsistens */
-		--accent-color: #779cbb; /* En dempet, litt "støvete" blå, mindre skarp enn originalen */
+		--text-color: #4a4a4a;
+		--heading-color: #383838;
+		--background-color: #e4e1da;
+		--background-color-translucent: #e4e1dabb;
+		--primary-color: #a0c4e460;
+		--secondary-color: #a0c4e460;
+		--accent-color: #779cbb;
 	}
 
 	:global(*) {
@@ -143,10 +152,18 @@
 		position: relative;
 	}
 
-	main {
+	.home-page {
 		width: 50%;
 		position: relative;
 		overflow: hidden;
+	}
+
+	.project-page {
+		width: 100%;
+		margin-top: 3rem;
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
 	}
 
 	@media (max-height: 1000px) {

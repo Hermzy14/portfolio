@@ -30,10 +30,10 @@
 		positiv forskjell.
 	</p>
 	<p>
-		Ved siden av studiene er jeg også læringsassistent i Programmering 1, der jeg støtter studenter
-		i forståelsen av objektorientert programmering med Java. Arbeidet krever både sterk faglig
-		forståelse og evnen til å kommunisere klart. På fritiden liker jeg å eksperimentere og utforske
-		ny teknologi.
+		Ved siden av studiene er jeg også læringsassistent i Programmering 1 og Programmering 2, der jeg
+		støtter studenter i forståelsen av objektorientert programmering med Java. Arbeidet krever både
+		sterk faglig forståelse og evnen til å kommunisere klart. På fritiden liker jeg å eksperimentere
+		og utforske ny teknologi.
 	</p>
 </section>
 

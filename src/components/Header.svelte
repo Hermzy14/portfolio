@@ -71,7 +71,7 @@
 </script>
 
 <a href="#hero" class="go-to-top"><ArrowUp size={30} /></a>
-<header>
+<header class={activeProject ? 'project-page' : ''}>
 	<section id="hero">
 		<h1>Herman Lundby-Holen</h1>
 		<h2>Software utvikler</h2>
@@ -166,6 +166,13 @@
 		justify-content: space-between;
 		z-index: 10;
 		transition: color var(--theme-transition, 0.6s ease-in-out);
+	}
+
+	.project-page {
+		background-color: var(--background-color-translucent);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.12);
 	}
 
 	header::after {
