@@ -5,9 +5,40 @@
 	import { cubicOut } from 'svelte/easing';
 	import { page } from '$app/stores';
 	import { theme } from '$lib/stores/theme.js';
+	import ProjectList from './ProjectList.svelte';
+
+	const projects = [
+		{
+			title: 'Learniverse Connect',
+			description: 'Webtek & Apputvikling',
+			year: '2025',
+			href: '/learniverse'
+		},
+		{
+			title: 'Chaos Game',
+			description: 'Programmering 2',
+			year: '2024',
+			href: '/chaos-game'
+		},
+		{
+			title: 'Card Game',
+			description: 'Programmering 2',
+			year: '2024',
+			href: 'https://webteknologi9.netlify.app',
+			target: '_blank'
+		},
+		{
+			title: 'Train Dispatch System',
+			description: 'Programmering 1',
+			year: '2023',
+			href: 'https://webteknologi9.netlify.app',
+			target: '_blank'
+		}
+	];
 
 	let activeSection = $state('about');
 	let activeProject = $state('');
+	let showProjectDropdown = $state(false);
 
 	function updateActiveSection() {
 		const sections = ['about', 'projects', 'contact'];
@@ -86,9 +117,19 @@
 			<li class={activeSection === 'about' ? 'active-item' : ''}>
 				<a href="/#about" class={activeSection === 'about' ? 'active' : ''}>Om meg</a>
 			</li>
-			<li class={activeSection === 'projects' ? 'active-item' : ''}>
+			<li
+				class={activeSection === 'projects' ? 'active-item' : ''}
+				class:project-dropdown-container={activeProject}
+				onmouseenter={() => {
+					if (activeProject) showProjectDropdown = true;
+				}}
+				onmouseleave={() => {
+					if (activeProject) showProjectDropdown = false;
+				}}
+			>
 				<a href="/#projects" class={activeSection === 'projects' ? 'active' : ''}>Prosjekter</a>
-				{#if activeSection === 'projects'}
+
+				{#if activeSection === 'projects' && !activeProject}
 					<ul
 						class="project-list"
 						in:slide={{ duration: 300, easing: cubicOut }}
@@ -117,6 +158,13 @@
 							>
 						</li>
 					</ul>
+				{/if}
+
+				<!-- Hover dropdown for project pages -->
+				{#if activeProject && showProjectDropdown}
+					<div class="project-dropdown-wrapper">
+						<ProjectList {projects} />
+					</div>
 				{/if}
 			</li>
 			<li class={activeSection === 'contact' ? 'active-item' : ''}>
@@ -216,6 +264,7 @@
 		color: var(--text-color);
 		transition: color 0.3s ease;
 		width: fit-content;
+		position: relative;
 	}
 
 	nav li:hover {
@@ -251,6 +300,25 @@
 		flex-direction: column;
 		gap: 0.5rem;
 		overflow: hidden;
+	}
+
+	/* Hover dropdown styles */
+	.project-dropdown-wrapper {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-top: 1rem;
+		padding: 0.5rem;
+		min-width: max-content;
+
+		background: var(--background-color-translucent);
+		border: 1px solid var(--primary-color);
+		backdrop-filter: blur(8px);
+		border-radius: 8px;
+
+		z-index: 1000;
+		list-style: none;
 	}
 
 	#contact-options {
@@ -339,6 +407,11 @@
 		.active,
 		nav li.active-item {
 			color: var(--text-color);
+		}
+
+		/* Hide dropdown on mobile */
+		.project-dropdown {
+			display: none;
 		}
 	}
 
