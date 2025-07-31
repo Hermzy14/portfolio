@@ -7,6 +7,8 @@
 	import { theme } from '$lib/stores/theme.js';
 	import { onMount } from 'svelte';
 
+	export const prerender = true;
+
 	let { children } = $props();
 
 	// Get the current page URL
