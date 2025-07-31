@@ -1,22 +1,10 @@
-import { mdsvex } from 'mdsvex';
-import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-netlify';
 
-const config = {
-	preprocess: [vitePreprocess(), mdsvex()],
+export default {
 	kit: {
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: '404.html',
-			precompress: false,
-			strict: true
-		}),
+		adapter: adapter(),
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/portfolio' : ''
 		}
-	},
-	extensions: ['.svelte', '.svx']
+	}
 };
-
-export default config;
