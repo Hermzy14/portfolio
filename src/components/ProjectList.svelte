@@ -12,7 +12,7 @@
 <ul>
 	{#each projects as project}
 		<li>
-			<a href={project.href} target={project.target}>
+			<a href={project.href}>
 				<span class="project-title">{project.title}</span>
 				<span class="project-description">{project.description}</span>
 				<div class="seperator"></div>
