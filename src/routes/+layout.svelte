@@ -191,7 +191,7 @@
 			padding: 5rem 2rem;
 		}
 
-		main {
+		.home-page {
 			width: 100%;
 		}
 	}
