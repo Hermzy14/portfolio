@@ -106,28 +106,7 @@
 						in:slide={{ duration: 300, easing: cubicOut }}
 						out:slide={{ duration: 200, easing: cubicOut }}
 					>
-						<li class={activeProject === 'learniverse' ? 'active-item' : ''}>
-							<a href="/learniverse" class={activeProject === 'learniverse' ? 'active' : ''}
-								>Learniverse Connect</a
-							>
-						</li>
-						<li class={activeProject === 'chaos-game' ? 'active-item' : ''}>
-							<a href="/chaos-game" class={activeProject === 'chaos-game' ? 'active' : ''}
-								>Chaos Game</a
-							>
-						</li>
-						<li class={activeProject === 'card-game' ? 'active-item' : ''}>
-							<a href="/card-game" class={activeProject === 'card-game' ? 'active' : ''}
-								>Card Game</a
-							>
-						</li>
-						<li class={activeProject === 'train-dispatch-system' ? 'active-item' : ''}>
-							<a
-								href="/train-dispatch-system"
-								class={activeProject === 'train-dispatch-system' ? 'active' : ''}
-								>Train Dispatch System</a
-							>
-						</li>
+						<ProjectList />
 					</ul>
 				{/if}
 

@@ -1,30 +1,10 @@
 <script lang="ts">
 	const projects = [
 		{
-			title: 'Learniverse Connect',
-			description: 'Webtek & Apputvikling',
-			year: '2025',
-			href: '/learniverse'
-		},
-		{
 			title: 'Chaos Game',
 			description: 'Programmering 2',
 			year: '2024',
 			href: '/chaos-game'
-		},
-		{
-			title: 'Card Game',
-			description: 'Programmering 2',
-			year: '2024',
-			href: 'https://webteknologi9.netlify.app',
-			target: '_blank'
-		},
-		{
-			title: 'Train Dispatch System',
-			description: 'Programmering 1',
-			year: '2023',
-			href: 'https://webteknologi9.netlify.app',
-			target: '_blank'
 		}
 	];
 </script>
